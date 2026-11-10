@@ -1,0 +1,24 @@
+# python
+__pycache__/
+*.pyc
+.venv/
+*.egg-info/
+.pytest_cache/
+.ruff_cache/
+build/
+# web
+web/node_modules/
+web/dist/
+web/test-results/
+web/playwright-report/
+# runtime data never lives in the repo: Config refuses it, these patterns are the second net
+/data/
+/downloads/
+/Incomplete/
+/Watch/
+backend/data/
+scripts/data/
+# local
+.env
+*.log
+*.tsbuildinfo

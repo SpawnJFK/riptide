@@ -1,0 +1,36 @@
+[project]
+name = "riptide"
+version = "0.1.0"
+description = "Riptide: a modern web-UI torrent client on libtorrent"
+requires-python = ">=3.12,<3.14"
+license = { text = "Proprietary" }
+dependencies = [
+  "libtorrent==2.1.1",        # BSD-3-Clause
+  "fastapi>=0.115",           # MIT
+  "uvicorn[standard]>=0.30",  # BSD-3-Clause
+  "python-multipart>=0.0.9",  # Apache-2.0
+]
+
+[project.optional-dependencies]
+dev = ["pytest>=8", "httpx>=0.27", "ruff>=0.6", "pip-licenses>=5"]
+
+[project.scripts]
+riptide = "riptide.__main__:main"
+
+[build-system]
+requires = ["setuptools>=69"]
+build-backend = "setuptools.build_meta"
+
+[tool.setuptools.packages.find]
+include = ["riptide*"]
+
+[tool.ruff]
+line-length = 120
+target-version = "py312"
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+
+[tool.ruff.lint]
+ignore = ["E501"]
+select = ["E", "F", "I", "UP", "W", "B006", "B904", "RUF100"]
